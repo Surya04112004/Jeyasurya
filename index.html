@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jeyasurya | Portfolio</title>
+
+<!-- ================= GOOGLE FONTS ================= -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ======================================================
+   ROOT VARIABLES
+====================================================== */
+:root{
+  --blue:#0e0e0f;
+  --cyan:#22d3ee;
+  --dark:#020617;
+  --light:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --card:#f8fafc;
+}
+
+/* ======================================================
+   RESET
+====================================================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:var(--text);
+  overflow:hidden;
+}
+
+/* ======================================================
+   INTRO SCREEN
+====================================================== */
+#intro{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at top,var(--cyan),var(--dark) 70%);
+  display:grid;
+  place-items:center;
+  z-index:9999;
+}
+
+.intro-box{
+  text-align:center;
+  color:#e5e7eb;
+  animation:introPop 1.4s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+@keyframes introPop{
+  from{
+    opacity:0;
+    transform:scale(.4) rotate(-8deg);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) rotate(0deg);
+  }
+}
+
+.intro-icon{
+  margin-bottom:18px;
+  animation:glow 2.2s infinite alternate;
+}
+
+@keyframes glow{
+  from{filter:drop-shadow(0 0 6px var(--cyan))}
+  to{filter:drop-shadow(0 0 20px var(--cyan))}
+}
+
+.intro-box h1{
+  font-family:'Fredoka',sans-serif;
+  font-size:34px;
+  letter-spacing:4px;
+}
+
+.intro-box p{
+  margin-top:10px;
+  font-size:13px;
+  color:#cbd5f5;
+}
+
+/* ======================================================
+   MAIN WRAPPER
+====================================================== */
+#main{
+  opacity:0;
+  transform:scale(.94);
+  transition:1.2s cubic-bezier(.19,1,.22,1);
+}
+
+#main.show{
+  opacity:1;
+  transform:none;
+}
+
+body.loaded{
+  overflow:auto;
+}
+
+/* ======================================================
+   NAVBAR
+====================================================== */
+nav{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#fff;
+  padding:10px 26px;
+  border-radius:999px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+  display:flex;
+  gap:22px;
+  z-index:100;
+}
+
+nav a{
+  text-decoration:none;
+  font-size:14px;
+  padding:6px 14px;
+  border-radius:999px;
+  color:#475569;
+  transition:.3s;
+}
+
+nav a:hover,
+nav a.active{
+  background:var(--blue);
+  color:#fff;
+}
+
+/* ======================================================
+   SECTIONS COMMON
+====================================================== */
+section{
+  padding:130px 10%;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.hero h2{
+  font-size:56px;
+  font-weight:800;
+}
+
+.hero h2 span{
+  color:var(--blue);
+}
+
+.hero p{
+  margin-top:18px;
+  max-width:420px;
+  color:var(--muted);
+}
+
+.hero img{
+  width:280px;              /* PERFECT HERO SIZE */
+  max-width:100%;
+  height: 300px;
+  border:2px solid #000;    /* BLACK BORDER */
+  border-radius:18px;
+  padding:6px;
+  background:#fff;
+  box-shadow:0 14px 35px rgba(0,0,0,.15);
+  animation:none;           /* REMOVE FLOAT ANIMATION */
+  transition:all .35s ease;
+}
+
+/* CLEAN HOVER */
+.hero img:hover{
+  transform:translateY(-6px) scale(1.04);
+  box-shadow:0 26px 55px rgba(0,0,0,.22);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-22px)}
+}
+
+.btn{
+  display:inline-block;
+  margin-top:24px;
+  padding:14px 30px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(79,70,229,.6)}
+  70%{box-shadow:0 0 0 22px rgba(79,70,229,0)}
+  100%{box-shadow:0 0 0 0 rgba(79,70,229,0)}
+}
+
+/* ======================================================
+   ABOUT
+====================================================== */
+.about{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+
+.tag{
+  font-size:13px;
+  letter-spacing:2px;
+  color:#64748b;
+  font-weight:600;
+}
+
+.about-left h2{
+  margin-top:14px;
+  font-size:42px;
+  font-weight:800;
+}
+
+.about-desc{
+  margin-top:18px;
+  max-width:520px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.about-cards{
+  margin-top:36px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.about-card{
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:18px;
+  transition:.3s;
+}
+
+.about-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--blue);
+}
+
+.about-card h4{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.about-card p{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.about-right img{
+  max-width:300px;
+  width:100%;
+  border-radius:20px;
+  border:3px solid #000;
+}
+.about-right{
+  display:flex;
+  justify-content:center;
+}
+
+.about-right img{
+  width:260px;              /* CONTROL SIZE */
+  max-width:100%;
+  border:2px solid #000;    /* BLACK BORDER */
+  border-radius:16px;       /* SOFT CORNERS */
+  padding:6px;              /* SPACE BETWEEN IMAGE & BORDER */
+  background:#fff;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  transition:all .35s ease;
+}
+
+/* HOVER EFFECT */
+.about-right img:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 22px 50px rgba(0,0,0,.2);
+}
+
+/* ======================================================
+   PROJECTS / SERVICES
+====================================================== */
+.grid{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:20px;
+  padding:26px;
+  box-shadow:0 15px 30px rgba(0,0,0,.08);
+  transition:.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 30px 60px rgba(0,0,0,.15);
+}
+
+/* ======================================================
+   CONTACT
+====================================================== */
+.contact{
+  text-align:center;
+}
+
+.section-tag{
+  font-size:13px;
+  letter-spacing:2px;
+  color:#94a3b8;
+  font-weight:600;
+}
+
+.contact h2{
+  margin-top:10px;
+  font-size:34px;
+  font-weight:800;
+}
+
+.contact-wrapper{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+}
+
+.contact-info{
+  text-align:left;
+  animation:fadeLeft 1s ease forwards;
+}
+
+@keyframes fadeLeft{
+  from{opacity:0;transform:translateX(-40px)}
+  to{opacity:1;transform:none}
+}
+
+.contact-form{
+  animation:fadeRight 1s ease forwards;
+}
+
+@keyframes fadeRight{
+  from{opacity:0;transform:translateX(40px)}
+  to{opacity:1;transform:none}
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:16px;
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+}
+
+.contact-form button{
+  padding:14px;
+  width:100%;
+  border:none;
+  border-radius:12px;
+  background:var(--blue);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+footer{
+  padding:50px;
+  background:#020617;
+  text-align:center;
+  color:#94a3b8;
+}
+
+footer h3{
+  color:#fff;
+}
+
+/* ======================================================
+   FLOAT BUTTON
+====================================================== */
+.float{
+  position:fixed;
+  right:26px;
+  bottom:26px;
+  width:52px;
+  height:52px;
+  background:var(--blue);
+  color:#fff;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+}
+
+/* ================= PROJECT SCREENSHOTS ================= */
+
+.project-card{
+  padding:18px;
+}
+
+.project-img{
+  width:100%;
+  height:160px;
+  overflow:hidden;
+  border-radius:14px;
+  margin-bottom:14px;
+  background:#f5f5f5;
+}
+
+.project-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s ease;
+  filter:grayscale(100%);
+}
+
+/* Hover effect */
+.project-card:hover img{
+  transform:scale(1.08);
+  filter:grayscale(0%);
+}
+
+/* Project title */
+.project-card h4{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+/* Project description */
+.project-card p{
+  font-size:13px;
+  color:#555;
+}
+
+/* ===== Dual Screenshot Hover ===== */
+.project-img.dual{
+  position:relative;
+}
+
+.project-img.dual img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s ease;
+  filter:grayscale(100%);
+}
+
+.project-img.dual .img-two{
+  opacity:0;
+}
+
+.project-card:hover .img-one{
+  opacity:0;
+}
+
+.project-card:hover .img-two{
+  opacity:1;
+  filter:grayscale(0%);
+}
+
+/* ===== CERTIFICATE / SERVICES SECTION ===== */
+
+.services-section{
+  background:#fff;
+  text-align:center;
+}
+
+.section-title{
+  font-size:32px;
+  font-weight:800;
+  margin:10px 0 50px;
+  color:#0f172a;
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:26px;
+}
+
+.service-card{
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:26px 18px;
+  transition:.35s ease;
+  box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.service-card img{
+  width:46px;
+  margin-bottom:18px;
+  filter:grayscale(100%);
+}
+
+.service-card h4{
+  font-size:16px;
+  margin-bottom:10px;
+  font-weight:700;
+}
+
+.service-card p{
+  font-size:13px;
+  color:#64748b;
+  line-height:1.5;
+}
+
+/* hover */
+.service-card:hover,
+.service-card.active{
+  background:#11111a;
+  transform:translateY(-8px);
+  box-shadow:0 25px 50px rgba(0,0,0,.15);
+}
+
+.service-card:hover h4,
+.service-card:hover p,
+.service-card.active h4,
+.service-card.active p{
+  color:#fff;
+}
+
+.service-card:hover img,
+.service-card.active img{
+  filter:grayscale(0%) brightness(10);
+}
+.intern-btn{
+  margin-top:16px;
+  display:inline-block;
+  padding:10px 22px;
+  border:1.5px solid #f5f3f3;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:600;
+  color:#000;
+  text-decoration:none;
+  transition:all .3s ease;
+}
+
+.service-card.active .intern-btn{
+  background:#000;
+  color:#fff;
+}
+
+.intern-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(233, 230, 230, 0.15);
+}
+/* INTERNSHIP MODAL */
+.internship-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s ease;
+}
+
+.internship-modal img{
+  max-width:90%;
+  max-height:85%;
+  border-radius:16px;
+  animation:zoomIn .4s ease;
+}
+
+@keyframes zoomIn{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.internship-modal.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.close-btn{
+  position:absolute;
+  top:30px;
+  right:40px;
+  font-size:36px;
+  color:#fff;
+  cursor:pointer;
+  user-select:none;
+}
+/* ================= SKILLS SECTION ================= */
+
+.skills-section{
+  background:#ffffff;
+  text-align:center;
+}
+
+.skills-title{
+  font-size:32px;
+  font-weight:800;
+  margin:10px 0 50px;
+  color:#000;
+}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:22px;
+  max-width:900px;
+  margin:0 auto;
+}
+
+/* Individual skill card */
+.skill-card{
+  padding:18px 10px;
+  border:2px solid #000;
+  border-radius:14px;
+  font-size:14px;
+  font-weight:600;
+  color:#000;
+  background:#fff;
+  transition:all .3s ease;
+  cursor:default;
+}
+
+/* Hover effect */
+.skill-card:hover{
+  background:#000;
+  color:#fff;
+  transform:translateY(-6px);
+  box-shadow:0 18px 40px rgba(0,0,0,.2);
+}
+/* ================= RESPONSIVE (MOBILE + TABLET) ================= */
+
+/* Tablets & below */
+@media (max-width: 1024px) {
+
+  section{
+    padding:100px 8%;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero img{
+    margin:40px auto 0;
+    max-width:300px;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  .about-right img{
+    max-width:280px;
+  }
+
+  .contact-wrapper{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  nav{
+    padding:8px 16px;
+    gap:10px;
+  }
+
+  nav a{
+    font-size:12px;
+    padding:6px 10px;
+  }
+
+  .hero h2{
+    font-size:38px;
+  }
+
+  .about-left h2{
+    font-size:32px;
+  }
+
+  .section-title,
+  .contact h2{
+    font-size:28px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .services-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+
+  section{
+    padding:90px 6%;
+  }
+
+  .hero h2{
+    font-size:32px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .btn{
+    padding:12px 22px;
+    font-size:14px;
+  }
+
+  .about-cards{
+    grid-template-columns:1fr;
+  }
+
+  footer{
+    padding:30px 10px;
+    font-size:13px;
+  }
+}
+@media (max-width:600px){
+  nav{
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+}
+</style>
+</head>
+<div id="internshipModal" class="internship-modal">
+  <span class="close-btn" onclick="closeInternship()">×</span>
+  <img src="assets/IMG_20251221_120500154_DOC.jpg" alt="Internship Certificate">
+</div>
+
+<body>
+
+<!-- ================= INTRO ================= -->
+<div id="intro">
+  <div class="intro-box">
+    <div class="intro-icon">
+      <svg width="70" height="70" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="4" width="18" height="12" rx="2" stroke="#22d3ee" stroke-width="2"/>
+        <path d="M2 20H22" stroke="#22d3ee" stroke-width="2"/>
+        <path d="M9 9L11 11L9 13" stroke="#22d3ee" stroke-width="2"/>
+        <path d="M15 9L13 11L15 13" stroke="#22d3ee" stroke-width="2"/>
+      </svg>
+    </div>
+    <h1>MY PROFILE</h1>
+    <p>Designed by Jeyasurya</p>
+  </div>
+</div>
+
+<!-- ================= MAIN ================= -->
+<div id="main">
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#services">Certificates</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+  <div>
+    <h2>Hi, I'm <span>Jeyasurya</span></h2>
+    <p>Frontend developer building animated, modern, real-world interfaces.</p>
+    <a href="#contact" class="btn">Hire Me</a>
+  </div>
+  <img src="assets/Picsart_26-01-06_13-36-13-523.jpg">
+</section>
+
+<section class="about" id="about">
+  <div class="about-left">
+    <span class="tag">ABOUT ME</span>
+    <h2>Building Reliable Software Solutions</h2>
+    <p class="about-desc">
+      Frontend developer with a strong interest in building clean interfaces and
+testing them to ensure quality and usability.
+    </p>
+    <div class="about-cards">
+      <div class="about-card"><h4>Languages</h4><p>HTML, CSS, JS, Python</p></div>
+      <div class="about-card"><h4>Education</h4><p>B.E / B.Tech</p></div>
+      <div class="about-card"><h4>Projects</h4><p>2+ real projects</p></div>
+    </div>
+  </div>
+  <div class="about-right">
+    <img src="assets/professionalbg.webp">
+  </div>
+</section>
+
+<section id="skills" class="skills-section">
+  <span class="section-tag">SKILLS</span>
+  <h2 class="skills-title">Technical Skills</h2>
+
+  <div class="skills-grid">
+
+    <div class="skill-card">HTML</div>
+    <div class="skill-card">CSS</div>
+    <div class="skill-card">JavaScript</div>
+    <div class="skill-card">Python</div>
+
+    <div class="skill-card">Microsoft Excel</div>
+    <div class="skill-card">Responsive Design</div>
+    <div class="skill-card">Git & GitHub</div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="grid">
+
+    <!-- PROJECT 1 -->
+    <div class="card project-card">
+      <div class="project-img">
+        <img src="assets/PTF.png" alt="Portfolio Screenshot">
+      </div>
+      <h4>Animated Portfolio</h4>
+      <p>Personal portfolio with intro animation and smooth UI.</p>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="card project-card">
+      <div class="project-img">
+        <img src="assets/UI.png" alt="Web UI Screenshot">
+      </div>
+      <h4>Web UI</h4>
+      <p>Clean black & white responsive web interface.</p>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="card project-card">
+  <div class="project-img dual">
+    <img src="assets/smartagri.png" class="img-one" alt="Screenshot 1">
+    <img src="assets/2.png" class="img-two" alt="Screenshot 2">
+  </div>
+      <h4>Smart Agri Chatbot</h4>
+      <p>AI based chatbot for farmers support.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="services" class="services-section">
+  <span class="section-tag">CERTIFICATES</span>
+  <h2 class="section-title">Internship & Training</h2>
+
+  <div class="services-grid">
+
+    <div class="service-card active">
+      <img src="assets/IMG_20251221_120500154_DOC.jpg" alt="Internship">
+
+      <h4>Web Development Internship</h4>
+
+      <p>
+        Hands-on internship in HTML, CSS, JavaScript with real-time projects
+        and portfolio building.
+      </p>
+
+      <a href="javascript:void(0)" class="intern-btn" onclick="openInternship()">
+        View Internship
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <span class="section-tag">CONTACT</span>
+  <h2>Get in Touch</h2>
+
+  <div class="contact-wrapper">
+
+    <!-- LEFT : CONTACT INFO -->
+    <div class="contact-info">
+      <p style="margin-bottom:16px; color:#64748b;">
+        For Hire Me.
+      </p>
+
+      <!-- CLICKABLE EMAIL -->
+      <p style="margin-bottom:4px;">
+        📧 
+        <a href="mailto:suryasivalai04@gmail.com"
+           style="color:#4f46e5; text-decoration:none; font-weight:600;">
+          suryasivalai04@gmail.com
+        </a>
+      </p>
+
+      <!-- CLICKABLE PHONE (SMALL / KUTTY) -->
+      <p style="font-size:13px; color:#64748b; margin-bottom:22px;">
+        📞 
+        <a href="tel:+916379558565"
+           style="color:#64748b; text-decoration:none;">
+          +91 63795 58565
+        </a>
+      </p>
+
+      <!-- BUTTONS -->
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+
+        <!-- HIRE ME -->
+        <a href="mailto:suryasivalai04@gmail.com"
+           class="btn"
+           style="padding:10px 22px; font-size:14px;">
+          Email
+        </a>
+
+        <!-- GITHUB -->
+        <a href="https://github.com/Surya04112004"
+           target="_blank"
+           class="btn"
+           style="padding:10px 22px; font-size:14px; background:#111827;">
+          GitHub
+        </a>
+
+        <!-- LINKEDIN -->
+        <a href="https://www.linkedin.com/in/jeyasurya-b-84a80337a"
+           target="_blank"
+           class="btn"
+           style="padding:10px 22px; font-size:14px; background:#0a66c2;">
+          LinkedIn
+        </a>
+
+      </div>
+    </div>
+
+    <!-- RIGHT : CONTACT FORM -->
+    <form class="contact-form" id="contact-form">
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="email" name="from_email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+  </div>
+</section>
+
+<footer>
+  <h3>MY PROFILE</h3>
+  <p>Designed & Built by Jeyasurya</p>
+</footer>
+
+<a href="#" class="float">↑</a>
+</div>
+
+<!-- ================= EMAILJS CDN ================= -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<!-- ================= INTRO + PAGE LOAD ================= -->
+<script>
+setTimeout(() => {
+  const intro = document.getElementById("intro");
+  const main = document.getElementById("main");
+
+  intro.style.opacity = "0";
+
+  setTimeout(() => {
+    intro.remove();
+    main.classList.add("show");
+    document.body.classList.add("loaded");
+  }, 800);
+}, 2800);
+</script>
+
+<!-- ================= EMAILJS INIT ================= -->
+<script>
+(function () {
+  emailjs.init("j9FIaaxt65ivPr01m"); // PUBLIC KEY
+})();
+</script>
+
+<!-- ================= CONTACT FORM SUBMIT ================= -->
+<script>
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm(
+    "service_p61whs3",   // SERVICE ID
+    "template_ocvbj0f",  // TEMPLATE ID
+    this
+  ).then(
+    function () {
+      alert("✅ Message sent successfully!");
+      document.getElementById("contact-form").reset();
+    },
+    function (error) {
+      alert("❌ Failed to send message");
+      console.error("EmailJS Error:", error);
+    }
+  );
+});
+function openInternship(){
+  document.getElementById("internshipModal").classList.add("show");
+}
+
+function closeInternship(){
+  document.getElementById("internshipModal").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
