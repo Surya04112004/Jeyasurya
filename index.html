@@ -5,14 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Jeyasurya | Portfolio</title>
 
-<!-- ================= GOOGLE FONTS ================= -->
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* ======================================================
-   ROOT VARIABLES
-====================================================== */
 :root{
   --blue:#0e0e0f;
   --cyan:#22d3ee;
@@ -22,10 +17,6 @@
   --muted:#64748b;
   --card:#f8fafc;
 }
-
-/* ======================================================
-   RESET
-====================================================== */
 *{
   margin:0;
   padding:0;
@@ -42,10 +33,6 @@ body{
   color:var(--text);
   overflow:hidden;
 }
-
-/* ======================================================
-   INTRO SCREEN
-====================================================== */
 #intro{
   position:fixed;
   inset:0;
@@ -93,10 +80,6 @@ body{
   font-size:13px;
   color:#cbd5f5;
 }
-
-/* ======================================================
-   MAIN WRAPPER
-====================================================== */
 #main{
   opacity:0;
   transform:scale(.94);
@@ -111,10 +94,6 @@ body{
 body.loaded{
   overflow:auto;
 }
-
-/* ======================================================
-   NAVBAR
-====================================================== */
 nav{
   position:fixed;
   top:18px;
@@ -143,17 +122,9 @@ nav a.active{
   background:var(--blue);
   color:#fff;
 }
-
-/* ======================================================
-   SECTIONS COMMON
-====================================================== */
 section{
   padding:130px 10%;
 }
-
-/* ======================================================
-   HERO
-====================================================== */
 .hero{
   display:grid;
   grid-template-columns:1.2fr 1fr;
@@ -177,19 +148,17 @@ section{
 }
 
 .hero img{
-  width:280px;              /* PERFECT HERO SIZE */
+  width:280px;
   max-width:100%;
   height: 300px;
-  border:2px solid #000;    /* BLACK BORDER */
+  border:2px solid #000;
   border-radius:18px;
   padding:6px;
   background:#fff;
   box-shadow:0 14px 35px rgba(0,0,0,.15);
-  animation:none;           /* REMOVE FLOAT ANIMATION */
+  animation:none;
   transition:all .35s ease;
 }
-
-/* CLEAN HOVER */
 .hero img:hover{
   transform:translateY(-6px) scale(1.04);
   box-shadow:0 26px 55px rgba(0,0,0,.22);
@@ -217,10 +186,6 @@ section{
   70%{box-shadow:0 0 0 22px rgba(79,70,229,0)}
   100%{box-shadow:0 0 0 0 rgba(79,70,229,0)}
 }
-
-/* ======================================================
-   ABOUT
-====================================================== */
 .about{
   display:grid;
   grid-template-columns:1.2fr 1fr;
@@ -289,11 +254,11 @@ section{
 }
 
 .about-right img{
-  width:260px;              /* CONTROL SIZE */
+  width:260px;
   max-width:100%;
-  border:2px solid #000;    /* BLACK BORDER */
-  border-radius:16px;       /* SOFT CORNERS */
-  padding:6px;              /* SPACE BETWEEN IMAGE & BORDER */
+  border:2px solid #000;
+  border-radius:16px;
+  padding:6px;
   background:#fff;
   box-shadow:0 12px 30px rgba(0,0,0,.12);
   transition:all .35s ease;
@@ -304,10 +269,6 @@ section{
   transform:translateY(-8px) scale(1.03);
   box-shadow:0 22px 50px rgba(0,0,0,.2);
 }
-
-/* ======================================================
-   PROJECTS / SERVICES
-====================================================== */
 .grid{
   margin-top:30px;
   display:grid;
@@ -327,10 +288,6 @@ section{
   transform:translateY(-10px) scale(1.02);
   box-shadow:0 30px 60px rgba(0,0,0,.15);
 }
-
-/* ======================================================
-   CONTACT
-====================================================== */
 .contact{
   text-align:center;
 }
@@ -393,10 +350,6 @@ section{
   font-weight:600;
   cursor:pointer;
 }
-
-/* ======================================================
-   FOOTER
-====================================================== */
 footer{
   padding:50px;
   background:#020617;
@@ -407,10 +360,6 @@ footer{
 footer h3{
   color:#fff;
 }
-
-/* ======================================================
-   FLOAT BUTTON
-====================================================== */
 .float{
   position:fixed;
   right:26px;
@@ -424,8 +373,6 @@ footer h3{
   place-items:center;
   text-decoration:none;
 }
-
-/* ================= PROJECT SCREENSHOTS ================= */
 
 .project-card{
   padding:18px;
@@ -466,8 +413,6 @@ footer h3{
   font-size:13px;
   color:#555;
 }
-
-/* ===== Dual Screenshot Hover ===== */
 .project-img.dual{
   position:relative;
 }
@@ -494,8 +439,6 @@ footer h3{
   opacity:1;
   filter:grayscale(0%);
 }
-
-/* ===== CERTIFICATE / SERVICES SECTION ===== */
 
 .services-section{
   background:#fff;
@@ -542,7 +485,6 @@ footer h3{
   line-height:1.5;
 }
 
-/* hover */
 .service-card:hover,
 .service-card.active{
   background:#11111a;
@@ -583,7 +525,6 @@ footer h3{
   transform:translateY(-3px);
   box-shadow:0 10px 25px rgba(233, 230, 230, 0.15);
 }
-/* INTERNSHIP MODAL */
 .internship-modal{
   position:fixed;
   inset:0;
@@ -623,7 +564,6 @@ footer h3{
   cursor:pointer;
   user-select:none;
 }
-/* ================= SKILLS SECTION ================= */
 
 .skills-section{
   background:#ffffff;
@@ -645,7 +585,6 @@ footer h3{
   margin:0 auto;
 }
 
-/* Individual skill card */
 .skill-card{
   padding:18px 10px;
   border:2px solid #000;
@@ -658,16 +597,13 @@ footer h3{
   cursor:default;
 }
 
-/* Hover effect */
 .skill-card:hover{
   background:#000;
   color:#fff;
   transform:translateY(-6px);
   box-shadow:0 18px 40px rgba(0,0,0,.2);
 }
-/* ================= RESPONSIVE (MOBILE + TABLET) ================= */
 
-/* Tablets & below */
 @media (max-width: 1024px) {
 
   section{
@@ -699,7 +635,6 @@ footer h3{
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
 
   nav{
@@ -734,7 +669,6 @@ footer h3{
   }
 }
 
-/* Small mobile */
 @media (max-width: 480px) {
 
   section{
@@ -777,8 +711,6 @@ footer h3{
 </div>
 
 <body>
-
-<!-- ================= INTRO ================= -->
 <div id="intro">
   <div class="intro-box">
     <div class="intro-icon">
@@ -794,9 +726,7 @@ footer h3{
   </div>
 </div>
 
-<!-- ================= MAIN ================= -->
 <div id="main">
-
 <nav>
   <a href="#home">Home</a>
   <a href="#about">About</a>
@@ -839,7 +769,6 @@ testing them to ensure quality and usability.
   <h2 class="skills-title">Technical Skills</h2>
 
   <div class="skills-grid">
-
     <div class="skill-card">HTML</div>
     <div class="skill-card">CSS</div>
     <div class="skill-card">JavaScript</div>
@@ -857,7 +786,6 @@ testing them to ensure quality and usability.
 
   <div class="grid">
 
-    <!-- PROJECT 1 -->
     <div class="card project-card">
       <div class="project-img">
         <img src="assets/PTF.png" alt="Portfolio Screenshot">
@@ -866,7 +794,6 @@ testing them to ensure quality and usability.
       <p>Personal portfolio with intro animation and smooth UI.</p>
     </div>
 
-    <!-- PROJECT 2 -->
     <div class="card project-card">
       <div class="project-img">
         <img src="assets/UI.png" alt="Web UI Screenshot">
@@ -875,7 +802,6 @@ testing them to ensure quality and usability.
       <p>Clean black & white responsive web interface.</p>
     </div>
 
-    <!-- PROJECT 3 -->
     <div class="card project-card">
   <div class="project-img dual">
     <img src="assets/smartagri.png" class="img-one" alt="Screenshot 1">
@@ -917,14 +843,12 @@ testing them to ensure quality and usability.
   <h2>Get in Touch</h2>
 
   <div class="contact-wrapper">
-
-    <!-- LEFT : CONTACT INFO -->
+     
     <div class="contact-info">
       <p style="margin-bottom:16px; color:#64748b;">
         For Hire Me.
       </p>
 
-      <!-- CLICKABLE EMAIL -->
       <p style="margin-bottom:4px;">
         📧 
         <a href="mailto:suryasivalai04@gmail.com"
@@ -933,7 +857,6 @@ testing them to ensure quality and usability.
         </a>
       </p>
 
-      <!-- CLICKABLE PHONE (SMALL / KUTTY) -->
       <p style="font-size:13px; color:#64748b; margin-bottom:22px;">
         📞 
         <a href="tel:+916379558565"
@@ -942,17 +865,14 @@ testing them to ensure quality and usability.
         </a>
       </p>
 
-      <!-- BUTTONS -->
       <div style="display:flex; gap:14px; flex-wrap:wrap;">
 
-        <!-- HIRE ME -->
         <a href="mailto:suryasivalai04@gmail.com"
            class="btn"
            style="padding:10px 22px; font-size:14px;">
           Email
         </a>
 
-        <!-- GITHUB -->
         <a href="https://github.com/Surya04112004"
            target="_blank"
            class="btn"
@@ -960,7 +880,6 @@ testing them to ensure quality and usability.
           GitHub
         </a>
 
-        <!-- LINKEDIN -->
         <a href="https://www.linkedin.com/in/jeyasurya-b-84a80337a"
            target="_blank"
            class="btn"
@@ -971,7 +890,6 @@ testing them to ensure quality and usability.
       </div>
     </div>
 
-    <!-- RIGHT : CONTACT FORM -->
     <form class="contact-form" id="contact-form">
       <input type="text" name="from_name" placeholder="Your Name" required>
       <input type="email" name="from_email" placeholder="Your Email" required>
@@ -990,10 +908,8 @@ testing them to ensure quality and usability.
 <a href="#" class="float">↑</a>
 </div>
 
-<!-- ================= EMAILJS CDN ================= -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<!-- ================= INTRO + PAGE LOAD ================= -->
 <script>
 setTimeout(() => {
   const intro = document.getElementById("intro");
@@ -1009,21 +925,19 @@ setTimeout(() => {
 }, 2800);
 </script>
 
-<!-- ================= EMAILJS INIT ================= -->
 <script>
 (function () {
-  emailjs.init("j9FIaaxt65ivPr01m"); // PUBLIC KEY
+  emailjs.init("j9FIaaxt65ivPr01m");
 })();
 </script>
 
-<!-- ================= CONTACT FORM SUBMIT ================= -->
 <script>
 document.getElementById("contact-form").addEventListener("submit", function (e) {
   e.preventDefault();
 
   emailjs.sendForm(
-    "service_p61whs3",   // SERVICE ID
-    "template_ocvbj0f",  // TEMPLATE ID
+    "service_p61whs3",
+    "template_ocvbj0f",
     this
   ).then(
     function () {
